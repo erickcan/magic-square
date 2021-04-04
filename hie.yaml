@@ -1,0 +1,7 @@
+cradle:
+  cabal:
+    - path: "src"
+      component: "lib:magic-square"
+
+    - path: "./Main.hs"
+      component: "magic-square:exe:magic-square"
