@@ -1,11 +1,11 @@
 module Main where
 
 import Control.Arrow (ArrowChoice ((|||)))
-import Magic         (makeMagicSquare)
+import Magic         (makeMagicSquare, printMagicSquare)
 import MagicArgs     (Options (..), parseCmdArgs)
 import System.IO     (hPutStrLn, stderr)
 
 main :: IO ()
 main = do
-  (Options x y z) <- parseCmdArgs
-  hPutStrLn stderr ||| print $ makeMagicSquare x y z
+  (Options x y z f) <- parseCmdArgs
+  hPutStrLn stderr ||| printMagicSquare f $ makeMagicSquare x y z
