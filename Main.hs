@@ -1,3 +1,5 @@
+{-# LANGUAGE RecordWildCards #-}
+
 module Main where
 
 import Control.Arrow (ArrowChoice ((|||)))
@@ -7,5 +9,5 @@ import System.IO     (hPutStrLn, stderr)
 
 main :: IO ()
 main = do
-  (Options x y z f) <- parseCmdArgs
-  hPutStrLn stderr ||| printMagicSquare f $ makeMagicSquare x y z
+  Options{..} <- parseCmdArgs
+  hPutStrLn stderr ||| printMagicSquare s $ makeMagicSquare a b c
