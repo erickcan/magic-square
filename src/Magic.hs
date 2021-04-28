@@ -29,7 +29,7 @@ showMagicSquare s = fmt . formatMagSq (rowCol s)
   where
     fmt :: String -> String
     fmt = case s of
-      Array -> (++"]]") . ("[["++) . concatMap (\case '\n' -> "]\n ["; x -> [x])
+      Array -> (++"]]") . ("[["++) . concatMap (\case '\n' -> "],\n ["; x -> [x])
       _     -> id
     rowCol :: SqStyle -> (String, Maybe Char)
     rowCol = \case
