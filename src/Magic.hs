@@ -21,22 +21,28 @@ newtype MagicSquare = MagicSquare {
 instance Show MagicSquare where
   show = showMagicSquare Default
 
-data SqStyle = Default | Minimal | Plus | Box
+data SqStyle = Default | Minimal | Plus | Box | Array
+  deriving (Show, Read, Enum, Bounded)
 
 showMagicSquare :: SqStyle -> MagicSquare -> String
-showMagicSquare = formatMagSq . rowCol
+showMagicSquare s = fmt . formatMagSq (rowCol s)
   where
+    fmt :: String -> String
+    fmt = case s of
+      Array -> (++"]]") . ("[["++) . concatMap (\case '\n' -> "]\n ["; x -> [x])
+      _     -> id
+    rowCol :: SqStyle -> (String, Maybe Char)
     rowCol = \case
       Default -> (" | ", Just '-')
       Minimal -> (" ", Nothing)
       Plus    -> (" + ", Just '+')
       Box     -> (" || ", Just '#')
-
-formatMagSq :: (String, Maybe Char) -> MagicSquare -> String
-formatMagSq (rowSep, colSep) = displaySquare colSep . fmtSquare rowSep . unMagic
+      Array   -> (", ", Nothing)
+    formatMagSq :: (String, Maybe Char) -> MagicSquare -> String
+    formatMagSq (row, col) = displaySquare col . fmtSquare row . unMagic
 
 printMagicSquare :: SqStyle -> MagicSquare -> IO ()
-printMagicSquare style = putStrLn . showMagicSquare style
+printMagicSquare = (.showMagicSquare) (putStrLn.)
 
 justifyRight :: Int -> String -> String
 justifyRight i t
