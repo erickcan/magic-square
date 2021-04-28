@@ -3,17 +3,13 @@ Create a magic square of order three in your terminal.
 
 ## Usage
 ```
-$ magic-square A B C
-               [--default-style | --minimal-style | --plus-style | --box-style]
+$ magic-square A B C [--style STYLE]
 ```
 where
-- `A` is a non-negative integer;
-- `B` > `A` and `B` ≠ 2 * `A`;
-- `C` > `B` + `A`;
-- `--default-style` splits lines with `-` and columns with `|`;
-- `--minimal-style` doesn't use separators;
-- `--plus-style` uses `+` as column and row separators;
-- `--box-style` separates lines using `#` and columns `||`.
+- `A` is a positive integer: `A > 0`;
+- `B` is an integer greater than `A` and not equal to the double of `A`: `B > A && B /= 2 * A`;
+- `C` is an integer greater than `B` plus `A`: `C > B + A`;
+- `STYLE` prints the magic square with the chosen style (`--styles-list` shows available styles).
 
 ### Examples
 ```
@@ -26,14 +22,14 @@ $ magic-square 1 5 9
 ```
 ---
 ```
-$ magic-square 1 3 5 --minimal-style
+$ magic-square 1 3 5 -sMinimal
 2 9 4
 7 5 3
 6 1 8
 ```
 ---
 ```
-$ magic-square 1 4 7 --plus-style
+$ magic-square 1 4 7 -sPlus
  3 + 12 +  6
 ++++++++++++
 10 +  7 +  4
@@ -42,10 +38,17 @@ $ magic-square 1 4 7 --plus-style
 ```
 ---
 ```
-$ magic-square 2 3 8 --box-style
+$ magic-square 2 3 8 -sBox
  5 || 13 ||  6
 ##############
  9 ||  8 ||  7
 ##############
 10 ||  3 || 11
+```
+---
+```
+$ magic-square 1 6 9 -sArray
+[[ 3, 16,  8],
+ [14,  9,  4],
+ [10,  2, 15]]
 ```
