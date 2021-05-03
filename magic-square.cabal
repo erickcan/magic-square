@@ -1,18 +1,18 @@
-cabal-version:       2.4
+cabal-version:         2.4
 
-name:                magic-square
-version:             0.1.0.0
-synopsis:            Create a magic square of order three in the terminal
-description:         Please see the README on GitHub at <https://github.com/erickcan/magic-square#readme>
-homepage:            https://github.com/erickcan/magic-square#readme
-bug-reports:         https://github.com/erickcan/magic-square/issues
-license:             MIT
-license-file:        LICENSE
-author:              erickcan
-maintainer:          79339358+erickcan@users.noreply.github.com
-copyright:           2021 erickcan
-category:            Math
-extra-source-files:  README.md
+name:                  magic-square
+version:               0.1.0.0
+synopsis:              Create a magic square of order three in the terminal
+description:           Please see the README on GitHub at <https://github.com/erickcan/magic-square#readme>
+homepage:              https://github.com/erickcan/magic-square#readme
+bug-reports:           https://github.com/erickcan/magic-square/issues
+license:               MIT
+license-file:          LICENSE
+author:                erickcan
+maintainer:            79339358+erickcan@users.noreply.github.com
+copyright:             (c) 2021 erickcan
+category:              Math
+extra-source-files:    README.md
 
 library
   exposed-modules:     Magic, MagicArgs
@@ -27,5 +27,5 @@ executable magic-square
   default-language:    Haskell2010
 
 source-repository head
-  type:      git
-  location:  https://github.com/erickcan/magic-square
+  type:                git
+  location:            https://github.com/erickcan/magic-square
