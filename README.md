@@ -1,6 +1,11 @@
 # magic-square
 Create a magic square of order three in your terminal.
 
+"Magic square" is the name given to a square array of numbers if the sums of the numbers in each row, each column, and both main diagonals are the same; the number that each sum gives is called the "magic constant". "Order" is the number of integers along one side. ([Wikipedia](https://en.wikipedia.org/wiki/Magic_square))
+
+## Setup
+To use `magic-square`, you need to download the executable (`.exe`) file in the [Releases page](https://github.com/erickcan/magic-square/releases) and use it via the command-line.
+
 ## Usage
 ```
 $ magic-square A B C [--style STYLE]
